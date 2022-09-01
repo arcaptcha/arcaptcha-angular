@@ -33,15 +33,14 @@ export class AppComponent {
   @ViewChild(ArcaptchaAngularComponent)
   private widget!: ArcaptchaAngularComponent;
 
-  ChallengeIdHandler(challengeID:any){ 
-    //do something with your challengeID
-  }
-
   exec(){
     this.widget.execute();
   }
 
   callbackFunction(){
+  } 
+  
+  renderCallback(){
   } 
 }
 
@@ -53,7 +52,7 @@ export class AppComponent {
 <lib-arcaptcha-angular 
     #widget 
     [site_key]="YOUR_SITE_KEY" 
-    [callback]=callbackFunction
+    [callback]="callbackFunction"
     [rendered_callback]="renderCallback"
     [invisible]=true  
     [lang]="'en'"   
