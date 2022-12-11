@@ -84,3 +84,12 @@ export class AppComponent {
 |--------|--------|
 |    execute    |    Programmatically trigger a challenge request. You can use this, to load invisible captcha after trigger a button  |
 |    resetCaptcha    |    	Reset the current challenge    |
+
+
+## How to publish this package
+`cd projects`
+then change package.json version and `npm run build`
+back to root folder
+`cd dist/arcaptcha-angular` and `npm publish`
+go to project and change package.json and the "npm run build"
+then go to dist/arcaptcha-angular and "npm publish"
