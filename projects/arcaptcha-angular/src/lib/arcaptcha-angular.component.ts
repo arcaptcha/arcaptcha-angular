@@ -32,13 +32,17 @@ export class ArcaptchaAngularComponent implements OnInit {
     this.setID();
     var my_script = document.head.querySelector(
       '#arcptcha-script'
-    ) as HTMLImageElement | null;
+    ) as HTMLScriptElement | null;
     const script = my_script || document.createElement('script');
 
     if (!my_script) {
       window.arcaptchaWidgetLoading = new Promise<void>((resolve, reject) => {
+
         script.src = `https://widget.arcaptcha.ir/1/api.js`;
         script.id = 'arcptcha-script';
+        script.defer = true;
+        script.async = true;
+
         script.onload = () => {
           resolve();
           this.initialize();
