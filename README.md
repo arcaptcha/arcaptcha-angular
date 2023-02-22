@@ -1,7 +1,7 @@
 # Angular Arcaptcha Component Library
 
 ## Description
-Arcaptcha Component Library for AngularJS.
+Arcaptcha Component Library for Angular.
 
 [Arcaptcha](https://arcaptcha.ir/) is a drop-replacement for reCAPTCHA and hCaptcha that protects user privacy, rewards websites, and helps companies get their data labeled.
 
@@ -91,5 +91,3 @@ export class AppComponent {
 then change package.json version and `npm run build`
 back to root folder
 `cd dist/arcaptcha-angular` and `npm publish`
-go to project and change package.json and the "npm run build"
-then go to dist/arcaptcha-angular and "npm publish"

@@ -1,7 +1,7 @@
 # Angular Arcaptcha Component Library
 
 ## Description
-Arcaptcha Component Library for AngularJS.
+Arcaptcha Component Library for Angular.
 
 [Arcaptcha](https://arcaptcha.ir/) is a drop-replacement for reCAPTCHA and hCaptcha that protects user privacy, rewards websites, and helps companies get their data labeled.
 
