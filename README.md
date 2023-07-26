@@ -100,10 +100,6 @@ export class AppComponent {
 
   @ViewChild(ArcaptchaAngularComponent)
   private widget!: ArcaptchaAngularComponent;
-  
-  // public ngOnInit(){
-  //   // this.theBoundCallback = this.theCallback.bind(this);
-  // }
 
   renderCaptcha() {
     this.widget.execute();
@@ -123,6 +119,7 @@ export class AppComponent {
 }
 ```
 ```javascript
+
 <button on-click="renderCaptcha()">Load Captcha</button>
 <button on-click="resetCaptcha()">Reset Captcha</button>
 
