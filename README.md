@@ -10,14 +10,38 @@ Sign up at [Arcaptcha](https://arcaptcha.ir/sign-up) to get your sitekey today. 
 ## Installation
 You can install this library via npm with:
 
-```
+```javascript
   npm i arcaptcha-angular 
 ```
 
 ## Usage
-The requirement for usage are the siteـkey prop. The component will automatically include and load the Arcaptcha  API library and append it to the body.
 
+This file is common for 3 examples below:
+```javascript
+/// X.module.ts
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+import { ArcaptchaAngularModule } from 'arcaptcha-angular';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    ArcaptchaAngularModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
+
+- Basic:
+```javascript
 /// X.component.ts
 import { Component, ViewChild } from '@angular/core';
 import { ArcaptchaAngularComponent } from 'arcaptcha-angular';
@@ -46,7 +70,7 @@ export class AppComponent {
 
 ```
 
-```
+```javascript
 /// X.component.html
 
 <lib-arcaptcha-angular 
@@ -61,6 +85,59 @@ export class AppComponent {
 
 
 ```
+
+- Invisible:
+```javascript
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { ArcaptchaAngularComponent } from 'arcaptcha-angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+})
+
+export class AppComponent {
+
+  @ViewChild(ArcaptchaAngularComponent)
+  private widget!: ArcaptchaAngularComponent;
+  
+  // public ngOnInit(){
+  //   // this.theBoundCallback = this.theCallback.bind(this);
+  // }
+
+  renderCaptcha() {
+    this.widget.execute();
+  }
+  resetCaptcha(){
+    this.widget.resetCaptcha();
+  }
+  callbackFunction(token:any){
+    console.log(token)
+  } 
+  renderCallback(){
+    console.log("rendered:)")
+  }
+  expireCallback(){
+    console.log("expire")
+  }
+}
+```
+```javascript
+<button on-click="renderCaptcha()">Load Captcha</button>
+<button on-click="resetCaptcha()">Reset Captcha</button>
+
+<lib-arcaptcha-angular 
+    #widget 
+    [site_key]="'bdopsptc2b'" 
+    [callback]="callbackFunction"
+    [rendered_callback]="renderCallback"
+    [expired_callback]="expireCallback"
+    [invisible]=true  
+    [lang]="'fa'"  
+    [color]="'pink'"> 
+</lib-arcaptcha-angular>
+```
+
 
 ## Props
 
