@@ -78,7 +78,7 @@ export class AppComponent {
     [site_key]="YOUR_SITE_KEY" 
     [callback]="callbackFunction"
     [rendered_callback]="renderCallback"
-    [invisible]=true  
+    [invisible]=false  
     [lang]="'en'"   
     [theme]="'dark'">
 </lib-arcaptcha-angular>
@@ -88,6 +88,8 @@ export class AppComponent {
 
 - Invisible:
 ```javascript
+/// X.component.ts
+
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ArcaptchaAngularComponent } from 'arcaptcha-angular';
 
@@ -119,13 +121,14 @@ export class AppComponent {
 }
 ```
 ```javascript
+/// X.component.html
 
 <button on-click="renderCaptcha()">Load Captcha</button>
 <button on-click="resetCaptcha()">Reset Captcha</button>
 
 <lib-arcaptcha-angular 
     #widget 
-    [site_key]="'bdopsptc2b'" 
+    [site_key]="YOUR_SITE_KEY" 
     [callback]="callbackFunction"
     [rendered_callback]="renderCallback"
     [expired_callback]="expireCallback"
@@ -134,6 +137,57 @@ export class AppComponent {
     [color]="'pink'"> 
 </lib-arcaptcha-angular>
 ```
+
+- Invisible with promise:
+```javascript
+/// X.component.ts
+import { Component, ViewChild } from '@angular/core';
+import { ArcaptchaAngularComponent } from 'arcaptcha-angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+})
+
+export class AppComponent {
+
+  @ViewChild(ArcaptchaAngularComponent)
+  private widget!: ArcaptchaAngularComponent;
+
+  renderCaptcha() {
+    this.widget.execute().then((token:any)=>{
+      //captcha solved
+      console.log(token);
+    })
+  }
+  resetCaptcha(){    
+    this.widget.resetCaptcha().then(()=>{
+      console.log('reseted');
+    })
+  }
+
+  expireCallback(){
+    console.log("expire")
+  }
+}
+```
+
+```javascript
+/// X.component.html
+
+<button on-click="renderCaptcha()">Load Captcha</button>
+<button on-click="resetCaptcha()">Reset Captcha</button>
+
+<lib-arcaptcha-angular 
+    #widget 
+    [site_key]="YOUR_SITE_KEY"
+    [expired_callback]="expireCallback"
+    [invisible]=true  
+    [lang]="'fa'"  
+    [color]="'pink'"> 
+</lib-arcaptcha-angular>
+```
+
 
 
 ## Props
