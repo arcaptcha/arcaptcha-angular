@@ -13,12 +13,12 @@ declare global {
 export class ArcaptchaAngularComponent implements OnInit {
   constructor() {}
 
-  @Input() public callback :(arg: any)=>void;
-  @Input() public rendered_callback :(arg: any)=>void;
-  @Input() public error_callback :(arg: any)=>void;
-  @Input() public reset_callback :(arg: any)=>void;
-  @Input() public expired_callback :(arg: any)=>void;
-  @Input() public chlexpired_callback :(arg: any)=>void;
+  @Input() public callback: Function;
+  @Input() public rendered_callback : Function;
+  @Input() public error_callback : Function;
+  @Input() public reset_callback : Function;
+  @Input() public expired_callback : Function;
+  @Input() public chlexpired_callback : Function;
   @Input() site_key = '';
   @Input() lang = 'fa';
   @Input() theme = 'light';
@@ -101,12 +101,12 @@ export class ArcaptchaAngularComponent implements OnInit {
       lang: this.lang,
       theme: this.theme,
       size: this.invisible ? 'invisible' : '',
-      callback:'arcaptcha_callback_' + this.id ,
-      rendered_callback:'arcaptcha_rendered_callback_' + this.id ,
-      error_callback:'arcaptcha_error_callback_' + this.id ,
-      reset_callback:'arcaptcha_reset_callback_' + this.id ,
-      expired_callback:'arcaptcha_expired_callback_' + this.id ,
-      chlexpired_callback:'arcaptcha_chlexpired_callback_' + this.id ,
+      callback:this.callback?'arcaptcha_callback_' + this.id :null,
+      rendered_callback:this.rendered_callback?'arcaptcha_rendered_callback_' + this.id :null,
+      error_callback:this.error_callback?'arcaptcha_error_callback_' + this.id:null ,
+      reset_callback:this.reset_callback?'arcaptcha_reset_callback_' + this.id:null ,
+      expired_callback:this.expired_callback?'arcaptcha_expired_callback_' + this.id:null ,
+      chlexpired_callback:this.chlexpired_callback?'arcaptcha_chlexpired_callback_' + this.id:null ,
       color: this.color,
     });
     this.widget_id = widgetId;
