@@ -123,10 +123,10 @@ export class ArcaptchaAngularComponent implements OnInit {
   }
 
   resetCaptcha() {
-    (window as any).arcaptcha.reset(this.widget_id);
+    return (window as any).arcaptcha.reset(this.widget_id);
   }
 
   execute() {
-    (window as any).arcaptcha.execute(this.widget_id);
+    return (window as any).arcaptcha.execute(this.widget_id);
   }
 }
