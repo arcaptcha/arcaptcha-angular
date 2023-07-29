@@ -161,9 +161,7 @@ export class AppComponent {
     })
   }
   resetCaptcha(){    
-    this.widget.resetCaptcha().then(()=>{
-      console.log('reseted');
-    })
+    this.widget.resetCaptcha();
   }
 
   expireCallback(){
