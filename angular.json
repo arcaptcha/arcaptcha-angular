@@ -36,10 +36,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "arcaptcha-angular:build:production"
+              "buildTarget": "arcaptcha-angular:build:production"
             },
             "development": {
-              "browserTarget": "arcaptcha-angular:build:development"
+              "buildTarget": "arcaptcha-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -47,7 +47,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "arcaptcha-angular:build"
+            "buildTarget": "arcaptcha-angular:build"
           }
         },
         "test": {
