@@ -24,6 +24,7 @@ export class ArcaptchaAngularComponent implements OnInit {
   @Input() theme = 'light';
   @Input() invisible = false;
   @Input() color = 'normal';
+  @Input() api_url: string = 'https://widget.arcaptcha.ir/1/api.js';
 
   id: string = '';
   widget_id: string = '';
@@ -38,7 +39,7 @@ export class ArcaptchaAngularComponent implements OnInit {
     if (!my_script) {
       window.arcaptchaWidgetLoading = new Promise<void>((resolve, reject) => {
 
-        script.src = `https://widget.arcaptcha.ir/1/api.js`;
+        script.src = this.api_url;
         script.id = 'arcptcha-script';
         script.defer = true;
         script.async = true;
