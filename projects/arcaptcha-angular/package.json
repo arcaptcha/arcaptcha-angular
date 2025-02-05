@@ -1,9 +1,9 @@
 {
   "name": "arcaptcha-angular",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "peerDependencies": {
-    "@angular/common": "^18.0.5",
-    "@angular/core": "^18.0.5"
+    "@angular/common": ">=13.0.0",
+    "@angular/core": ">=13.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
